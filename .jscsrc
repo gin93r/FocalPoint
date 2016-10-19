@@ -1,0 +1,22 @@
+{
+   "disallowSpacesInCallExpression":true,
+   "disallowSpacesInFunctionDeclaration":{
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+   "disallowTrailingComma":true,
+   "disallowYodaConditions":true,
+   "requireAlignedObjectValues":"all",
+   "requireBlocksOnNewline":1,
+   "requireCommaBeforeLineBreak":true,
+   "requireKeywordsOnNewLine": ["else","catch"],
+   "requireLineBreakAfterVariableAssignment":true,
+   "requireNewlineBeforeBlockStatements":true,
+   "requireSemicolons": true,
+   "requireSpaceAfterLineComment":true,
+   "requireSpacesInForStatement":true,
+   "validateIndentation":{"value":4,"includeEmptyLines":false},
+   "validateParameterSeparator":", "
+   ,
+   "validateQuoteMarks": { "mark": "\"", "escape": true }
+}

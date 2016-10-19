@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FocalPoint</title>
+
+    <style>
+        .container
+        {
+            max-width: 1200px;
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <div id="fPoint_1" class="container">
+        <img src="sample.jpg" alt="">
+    </div>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/FocalPoint.js"></script>
+    <script>
+        $(window).on("load", function()
+        {   
+            $("#fPoint_1").FocalPoint({x:840, y:300});
+        });
+    </script>
+</body>
+</html>
