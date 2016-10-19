@@ -34,10 +34,13 @@ gulp.task('lint',['jscs'],function()
 gulp.task('compile',['lint'],function()
 {
     return gulp.src(__dirname + '/src/**.js')
+        .pipe(rename({
+            suffix:".min"
+        }))
         .pipe(uglify({
             outSourceMap:true,
             mangle:true
         }))
-        .pipe(gulp.dest(__dirname + "/js/"))
+        .pipe(gulp.dest(__dirname + "/dist/"))
         .pipe(lreload());
 });

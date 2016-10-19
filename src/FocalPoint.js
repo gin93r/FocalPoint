@@ -71,7 +71,6 @@
 
         return this.each(function()
         {
-            if(console) console.log(this);
             // Extend default options with passed options.
             // First argument to exend is an empty object
             // this keeps it from overriding the "defaults" object
