@@ -10,24 +10,47 @@
     $.fn.FocalPoint = function(options)
     {
 
-        Math.hypot = Math.hypot || function() {
-          var y = 0;
-          var length = arguments.length;
+        Math.hypot = Math.hypot || function()
+        {
+            var y = 0;
+            var length = arguments.length;
 
-          for (var i = 0; i < length; i++) {
-            if (arguments[i] === Infinity || arguments[i] === -Infinity) {
-              return Infinity;
+            for (var i = 0; i < length; i++)
+            {
+                if (arguments[i] === Infinity || arguments[i] === -Infinity)
+                {
+                    return Infinity;
+                }
+                y += arguments[i] * arguments[i];
             }
-            y += arguments[i] * arguments[i];
-          }
-          return Math.sqrt(y);
+            return Math.sqrt(y);
         };
+
+        function getScaleFactor(img)
+        {
+            var _nw = img.prop("naturalWidth"),
+                _w = img.prop("width");
+
+            if(_nw === _w) return 1;
+
+            return _w/_nw;
+        }
 
         function calculatePosition(cont, img, p2)
         {
             // get the width and height of the container
             var _cw = cont.width();
             var _ch = cont.height();
+            // get the scale factor of the image
+            var _sf = getScaleFactor(img);
+            // if the image is scaled, then p2 needs to be modified
+            if(_sf !== 1)
+            {
+                p2.x *= _sf;
+                p2.y *= _sf;
+            }
+
+            if(console) console.log(_sf, p2);
             // if the p2 going to move the image in a way
             // that there will be negative space, we need to modify
             // the target point so that it will fill the container
@@ -60,6 +83,8 @@
                 x : nx+dx,
                 y : ny+dy
             };
+
+
             return {img:img, offset:offset};
         }
 
