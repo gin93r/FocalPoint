@@ -49,8 +49,6 @@
                 p2.x *= _sf;
                 p2.y *= _sf;
             }
-
-            if(console) console.log(_sf, p2);
             // if the p2 going to move the image in a way
             // that there will be negative space, we need to modify
             // the target point so that it will fill the container
@@ -115,6 +113,8 @@
             // this keeps it from overriding the "defaults" object
             var opts = $.extend({}, $.fn.FocalPoint.defaults, options);
             var elem = $(this);
+            var elem_h = elem.height();
+
             var winW = $(window).width();
             // check for an image
             if(elem.children("img").length !== 1)
@@ -141,6 +141,7 @@
                     }
                     else
                     {
+
                         move(calculatePosition(elem, img, {x:opts.x, y:opts.y}), {animate:opts.animate, options:opts.animateOptions});
                     }
                     winW = $(window).width();
